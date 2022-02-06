@@ -23,11 +23,15 @@ def decimal_to_base(decimal_number, destination_base):
 
 def base_to_decimal(digits, original_base):
     """Returns the decimal (number) representation of an array of digits given in original_base"""
-    pass
+    decimal = 0
+    for index, item in enumerate(digits[::-1]):
+        decimal = decimal + (original_base**index) * int(item)  
+    return decimal
 
 
 def digits_as_string(digits, base):
     """Returns the string representation of an array of digits given in base"""
+
     pass
 
 
@@ -42,3 +46,4 @@ if __name__ == "__main__":
     print(output)
 
     print(decimal_to_binary(283))
+    print(base_to_decimal(table, 2))
