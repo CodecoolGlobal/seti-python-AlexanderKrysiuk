@@ -1,3 +1,6 @@
+from re import A
+
+
 def decimal_to_binary(decimal_number):
     """Returns the array of digits in binary representation of a decimal number"""
     binary = []
@@ -18,7 +21,12 @@ def binary_to_decimal(binary_digits):
 
 def decimal_to_base(decimal_number, destination_base):
     """Returns the digits in destination_base representation of the decimal number"""
-    pass
+    binary = []
+    while decimal_number != 0:
+        modulo = decimal_number % destination_base 
+        binary.append(modulo)
+        decimal_number = decimal_number // destination_base
+    return binary[::-1]
 
 
 def base_to_decimal(digits, original_base):
@@ -31,8 +39,23 @@ def base_to_decimal(digits, original_base):
 
 def digits_as_string(digits, base):
     """Returns the string representation of an array of digits given in base"""
-
-    pass
+    new_digits = []
+    if base == 16:
+        for digit in digits:
+            if digit == 10:
+                digit = "A"
+            elif digit == 11:
+                digit = "B"
+            elif digit == 12:
+                digit = "C"
+            elif digit == 13:
+                digit = "D"
+            elif digit == 14:
+                digit = "E"
+            elif digit == 15:
+                digit = "F"
+            new_digits.append(digit)
+        return new_digits
 
 
 def convert_base(original_digits, original_base, destination_base):
@@ -47,3 +70,6 @@ if __name__ == "__main__":
 
     print(decimal_to_binary(283))
     print(base_to_decimal(table, 2))
+    hex = decimal_to_base(283, 16)
+    hex = digits_as_string(hex, 16)
+    print(hex)
