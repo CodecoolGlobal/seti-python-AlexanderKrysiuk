@@ -1,6 +1,12 @@
 def decimal_to_binary(decimal_number):
     """Returns the array of digits in binary representation of a decimal number"""
-    pass
+    binary = []
+    while decimal_number != 0:
+        modulo = decimal_number % 2 
+        binary.append(modulo)
+        decimal_number = decimal_number // 2
+    return binary[::-1]
+
 
 
 def binary_to_decimal(binary_digits):
@@ -34,3 +40,5 @@ if __name__ == "__main__":
 
     output = binary_to_decimal(table) 
     print(output)
+
+    print(decimal_to_binary(283))
