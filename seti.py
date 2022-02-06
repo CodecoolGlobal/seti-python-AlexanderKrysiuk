@@ -39,21 +39,12 @@ def base_to_decimal(digits, original_base):
 
 def digits_as_string(digits, base):
     """Returns the string representation of an array of digits given in base"""
+    value_to_char = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'} # Dictionary
     new_digits = []
     if base == 16:
         for digit in digits:
-            if digit == 10:
-                digit = "A"
-            elif digit == 11:
-                digit = "B"
-            elif digit == 12:
-                digit = "C"
-            elif digit == 13:
-                digit = "D"
-            elif digit == 14:
-                digit = "E"
-            elif digit == 15:
-                digit = "F"
+            if digit > 9 and digit < 16:
+                digit = value_to_char[digit]
             new_digits.append(digit)
         return new_digits
 
